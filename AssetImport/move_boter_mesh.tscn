@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://0258svimcd2"]
+
+[ext_resource type="PackedScene" uid="uid://pxytclp6hnk6" path="res://AssetImport/MoveBotter/MoveBoterV1.glb" id="1_p3yfk"]
+
+[node name="MoveBoterV1" instance=ExtResource("1_p3yfk")]

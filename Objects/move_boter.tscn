@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cefviugfcfyg1"]
+
+[ext_resource type="Script" path="res://Objects/MoveBoter.gd" id="1_4skvt"]
+[ext_resource type="PackedScene" uid="uid://0258svimcd2" path="res://AssetImport/move_boter_mesh.tscn" id="2_6p5k4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sydtd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0man"]
+size = Vector3(0.294093, 0.714783, 0.17709)
+
+[node name="MoveBoter" type="StaticBody3D"]
+script = ExtResource("1_4skvt")
+
+[node name="MoveBoterV1" parent="." instance=ExtResource("2_6p5k4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sydtd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.691408, 0.858179, 0.154959)
+shape = SubResource("BoxShape3D_c0man")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.726152, 0.858179, 0.154959)
+shape = SubResource("BoxShape3D_c0man")

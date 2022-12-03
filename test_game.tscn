@@ -1,0 +1,176 @@
+[gd_scene load_steps=19 format=3 uid="uid://j7knr4b141rl"]
+
+[ext_resource type="PackedScene" uid="uid://cssxbmplqkrbr" path="res://Objects/box.tscn" id="1_5hipl"]
+[ext_resource type="Script" path="res://test_game.gd" id="1_8urdw"]
+[ext_resource type="PackedScene" uid="uid://cvbacd8q5g8hu" path="res://Objects/canon.tscn" id="2_sfw0q"]
+[ext_resource type="PackedScene" uid="uid://cb134m72x8fg3" path="res://GUI/main_select.tscn" id="3_5d6ip"]
+[ext_resource type="PackedScene" uid="uid://cefviugfcfyg1" path="res://Objects/move_boter.tscn" id="5_6dd10"]
+[ext_resource type="PackedScene" uid="uid://csxwxc1lsh573" path="res://Objects/fps_label.tscn" id="6_c0sco"]
+[ext_resource type="PackedScene" uid="uid://crxre5ngp3tid" path="res://Objects/terminal_button.tscn" id="7_5agc1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsmsd"]
+sky_top_color = Color(0.588235, 0.403922, 0.215686, 1)
+sky_horizon_color = Color(0.380392, 0.2, 0.133333, 1)
+sky_cover_modulate = Color(0.909804, 0.909804, 0.909804, 1)
+ground_bottom_color = Color(0.223529, 0.164706, 0.0588235, 1)
+ground_horizon_color = Color(0.772549, 0.619608, 0.509804, 1)
+
+[sub_resource type="Sky" id="Sky_aygs8"]
+sky_material = SubResource("ProceduralSkyMaterial_hsmsd")
+
+[sub_resource type="Environment" id="Environment_lba16"]
+background_mode = 2
+sky = SubResource("Sky_aygs8")
+ssr_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajg3a"]
+size = Vector3(19.9137, 1, 10.4583)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ae1d"]
+
+[sub_resource type="Animation" id="Animation_1e15e"]
+resource_name = "Cam_CanonPosition"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -2.79726, 2.70455, 4.11466, 1, 1, -2.79726, 2.70455, 4.11466)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.131678, 0.209407, 0.0284711, 0.968503, 1, 1, -0.131678, 0.209407, 0.0284711, 0.968503)
+
+[sub_resource type="Animation" id="Animation_gpdbn"]
+resource_name = "Cam_StartPoint"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 4, 1, 1, 0, 2, 4)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.118187, 0, 0, 0.992991, 1, 1, -0.118187, 0, 0, 0.992991)
+
+[sub_resource type="Animation" id="Animation_cps1e"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytts8"]
+_data = {
+"Cam_CanonPosition": SubResource("Animation_1e15e"),
+"Cam_StartPoint": SubResource("Animation_gpdbn"),
+"RESET": SubResource("Animation_cps1e")
+}
+
+[sub_resource type="Animation" id="Animation_j5nc0"]
+resource_name = "CubeSpawnPointMove"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CubeSpawnPoint")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 11.7829, 0, 0.6, 1, -1.5752, 11.7829, -0.525065, 1.1, 1, 1.19298, 11.7829, -1.12606, 1.9, 1, -1.65668, 11.7829, 0.521747, 2.5, 1, 1.31634, 11.7829, 0.484248)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wp56"]
+_data = {
+"CubeSpawnPointMove": SubResource("Animation_j5nc0")
+}
+
+[node name="TestGame" type="Node3D"]
+script = ExtResource("1_8urdw")
+
+[node name="MainSelect" parent="." instance=ExtResource("3_5d6ip")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.910676, -0.110297, 0.398125, 1.00583e-07, 0.9637, 0.266985, -0.413121, -0.243137, 0.877619, -2.79726, 2.70455, 4.11466)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.913943, -0.215791, 0.34372, 0, 0.846927, 0.531709, -0.405844, -0.485952, 0.774043, 0, 5.1191, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lba16")
+
+[node name="Box4" parent="." instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74909, 8.46683, -0.0378446)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507624, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_ajg3a")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(19.8405, 0, 0, 0, 1, 0, 0, 0, 10.3548, 0, 0, 0)
+mesh = SubResource("BoxMesh_1ae1d")
+skeleton = NodePath("../..")
+
+[node name="BoxWall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72855, 0.513515, -3.92011)
+
+[node name="Box5" parent="BoxWall" instance=ExtResource("1_5hipl")]
+
+[node name="Box6" parent="BoxWall" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02121, 0, 0)
+
+[node name="Box7" parent="BoxWall" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06613, 0, 0)
+
+[node name="Box8" parent="BoxWall" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62281, 1.00971, 0)
+
+[node name="Box9" parent="BoxWall" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.484398, 1.00971, 0)
+
+[node name="Box10" parent="BoxWall" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04455, 2.03951, 0)
+
+[node name="Canon" parent="." instance=ExtResource("2_sfw0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7553, 0, 2.23428)
+
+[node name="GameAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ytts8")
+}
+
+[node name="MoveBoter" parent="." instance=ExtResource("5_6dd10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.162467)
+Pos1 = Vector3(1.5, 0, 0)
+Pos2 = Vector3(-1.5, 0, 0)
+
+[node name="MoveBoter2" parent="." instance=ExtResource("5_6dd10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81117, 0, -0.754879)
+Pos1 = Vector3(0, 0, 1.5)
+Pos2 = Vector3(0, 0, -1.5)
+
+[node name="FPSLabel" parent="." instance=ExtResource("6_c0sco")]
+
+[node name="TerminalButton" parent="." instance=ExtResource("7_5agc1")]
+transform = Transform3D(0.774445, 0, -0.200588, 0, 0.8, 0, 0.200588, 0, 0.774445, 1.09375, 0, 2.53887)
+
+[node name="CubeSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119529, 11.7829, 0.499344)
+
+[node name="CubeSpawnPointMove" type="AnimationPlayer" parent="CubeSpawnPoint"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_5wp56")
+}
+
+[connection signal="go_canon" from="MainSelect" to="." method="_on_main_select_go_canon"]
+[connection signal="go_reset" from="MainSelect" to="." method="_on_main_select_go_reset"]
+[connection signal="go_start" from="MainSelect" to="." method="_on_main_select_go_start"]
+[connection signal="button_pushed_down" from="TerminalButton" to="." method="_on_terminal_button_button_pushed_down"]

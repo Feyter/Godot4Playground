@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://crxre5ngp3tid"]
+
+[ext_resource type="PackedScene" uid="uid://csaltue1fap4o" path="res://AssetImport/Terminal/TerminalButton.glb" id="1_278j2"]
+[ext_resource type="Script" path="res://Objects/terminal_button.gd" id="2_j4w0n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_robkg"]
+size = Vector3(0.205386, 0.0746164, 0.196724)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1f5hm"]
+size = Vector3(0.755474, 1.98963, 0.650441)
+
+[node name="TerminalButton" instance=ExtResource("1_278j2")]
+script = ExtResource("2_j4w0n")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01602, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0312698)
+shape = SubResource("BoxShape3D_robkg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07445, 0)
+shape = SubResource("BoxShape3D_1f5hm")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

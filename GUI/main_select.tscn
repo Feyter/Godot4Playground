@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb134m72x8fg3"]
+
+[ext_resource type="Theme" uid="uid://rvbukuo7cm3f" path="res://GUI/default_theme.tres" id="1_kcsc0"]
+[ext_resource type="Script" path="res://GUI/main_select.gd" id="1_otlsr"]
+
+[node name="MainSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_otlsr")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.0
+offset_right = 178.0
+offset_bottom = 43.0
+grow_horizontal = 2
+columns = 6
+
+[node name="CanonButton" type="Button" parent="GridContainer"]
+offset_right = 245.0
+offset_bottom = 57.0
+theme = ExtResource("1_kcsc0")
+text = "Shoot a canon"
+
+[node name="StartButton" type="Button" parent="GridContainer"]
+offset_left = 249.0
+offset_right = 438.0
+offset_bottom = 57.0
+theme = ExtResource("1_kcsc0")
+text = "Go to Start"
+
+[node name="ResetButton" type="Button" parent="GridContainer"]
+offset_left = 442.0
+offset_right = 653.0
+offset_bottom = 57.0
+theme = ExtResource("1_kcsc0")
+text = "Reset World"
+
+[connection signal="pressed" from="GridContainer/CanonButton" to="." method="_on_canon_button_pressed"]
+[connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GridContainer/ResetButton" to="." method="_on_reset_button_pressed"]

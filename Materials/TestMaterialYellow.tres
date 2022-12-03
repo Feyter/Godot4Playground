@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dkmxb72gdooka"]
+
+[ext_resource type="Texture2D" uid="uid://un1csc5p3gwe" path="res://Materials/Textures/BluePrintTexture.png" id="1_e7lkb"]
+
+[resource]
+albedo_color = Color(0.835294, 0.760784, 0.027451, 1)
+albedo_texture = ExtResource("1_e7lkb")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true

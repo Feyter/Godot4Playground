@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvbacd8q5g8hu"]
+
+[ext_resource type="PackedScene" uid="uid://cuylhgdieo0uh" path="res://AssetImport/Canon/Canon.glb" id="1_yreba"]
+[ext_resource type="Script" path="res://Objects/canon.gd" id="2_ywkwg"]
+[ext_resource type="PackedScene" uid="uid://bbj75eq2ty3af" path="res://Objects/canon_ball.tscn" id="3_sqti5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_moghx"]
+size = Vector3(1.66618, 1.35961, 2.48976)
+
+[node name="Canon" instance=ExtResource("1_yreba")]
+script = ExtResource("2_ywkwg")
+CanonBall_Path = ExtResource("3_sqti5")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652943, -0.216329)
+shape = SubResource("BoxShape3D_moghx")
+
+[node name="SpawnPos" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.998867, -0.0475946, 0, 0.0475946, 0.998867, 0, 0.87851, -1.50079)

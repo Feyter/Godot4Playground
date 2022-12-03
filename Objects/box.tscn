@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cssxbmplqkrbr"]
+
+[ext_resource type="Material" uid="uid://dkmxb72gdooka" path="res://Materials/TestMaterialYellow.tres" id="1_pcftk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tcj4e"]
+material = ExtResource("1_pcftk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wckup"]
+
+[node name="Box" type="RigidBody3D"]
+mass = 60.0
+
+[node name="BoxMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tcj4e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wckup")
