@@ -11,6 +11,7 @@ grow_horizontal = 2
 script = ExtResource("1_otlsr")
 
 [node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -21,25 +22,37 @@ grow_horizontal = 2
 columns = 6
 
 [node name="CanonButton" type="Button" parent="GridContainer"]
+layout_mode = 2
 offset_right = 245.0
 offset_bottom = 57.0
 theme = ExtResource("1_kcsc0")
 text = "Shoot a canon"
 
 [node name="StartButton" type="Button" parent="GridContainer"]
+layout_mode = 2
 offset_left = 249.0
-offset_right = 438.0
+offset_right = 444.0
 offset_bottom = 57.0
 theme = ExtResource("1_kcsc0")
-text = "Go to Start"
+text = "Physis Test"
+
+[node name="ClickTestButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+offset_left = 448.0
+offset_right = 711.0
+offset_bottom = 57.0
+theme = ExtResource("1_kcsc0")
+text = "Animation Test"
 
 [node name="ResetButton" type="Button" parent="GridContainer"]
-offset_left = 442.0
-offset_right = 653.0
+layout_mode = 2
+offset_left = 715.0
+offset_right = 926.0
 offset_bottom = 57.0
 theme = ExtResource("1_kcsc0")
 text = "Reset World"
 
 [connection signal="pressed" from="GridContainer/CanonButton" to="." method="_on_canon_button_pressed"]
 [connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GridContainer/ClickTestButton" to="." method="_on_click_test_button_pressed"]
 [connection signal="pressed" from="GridContainer/ResetButton" to="." method="_on_reset_button_pressed"]

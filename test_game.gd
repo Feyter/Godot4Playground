@@ -29,3 +29,7 @@ func _on_terminal_button_button_pushed_down():
 	var newCube = load("res://Objects/box.tscn").instantiate()
 	newCube.position = $CubeSpawnPoint.position
 	add_child(newCube)
+
+
+func _on_main_select_go_click_test():
+	$GameAnimation.play("Pos3", 0.5)

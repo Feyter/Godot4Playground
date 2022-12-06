@@ -1,0 +1,10 @@
+res://test_game.tscn
+res://Objects/canon.gd
+res://Objects/terminal_button.tscn
+res://Objects/click_button_test.tscn
+res://GUI/main_select.tscn
+res://AssetImport/Canon/canon_Import.tscn
+res://Objects/canon.tscn
+res://Objects/arrwo_terminal.gd
+res://Objects/arrwo_terminal.tscn
+res://CanonArea.gd

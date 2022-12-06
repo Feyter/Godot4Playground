@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnao30j2wkkgi"]
+
+[ext_resource type="PackedScene" uid="uid://noj2uxqphbq" path="res://AssetImport/Canon/Canon.glb" id="1_ywdo7"]
+
+[node name="Canon" instance=ExtResource("1_ywdo7")]

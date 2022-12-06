@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnheqlpo3urim"]
+
+[ext_resource type="Script" path="res://Objects/click_button_test.gd" id="1_1v4th"]
+[ext_resource type="Script" path="res://Classes/ClickArea3D.gd" id="2_4wplt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb1p2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ohs5o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d416y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wbhk1"]
+
+[node name="ClickButtonTest" type="Node3D"]
+script = ExtResource("1_1v4th")
+
+[node name="ClickArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500321, 0)
+script = ExtResource("2_4wplt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickArea3D"]
+shape = SubResource("BoxShape3D_jb1p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClickArea3D"]
+mesh = SubResource("BoxMesh_ohs5o")
+skeleton = NodePath("../..")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08906, -1.61811)
+mass = 25.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_d416y")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_wbhk1")
+
+[connection signal="pressed" from="ClickArea3D" to="." method="_on_click_area_3d_pressed"]
+[connection signal="released" from="ClickArea3D" to="." method="_on_click_area_3d_released"]

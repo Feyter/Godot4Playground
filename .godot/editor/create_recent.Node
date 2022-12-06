@@ -1,0 +1,9 @@
+Node3D
+CollisionShape3D
+ClickArea3D (ClickArea3D.gd)
+MeshInstance3D
+Button
+RigidBody3D
+ShapeCast3D
+AnimationPlayer
+Sprite3D
