@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjcax7prjdt5f"]
+
+[ext_resource type="PackedScene" uid="uid://cobjug5m82om6" path="res://AssetImport/RoboArm/RoboArm.glb" id="1_7n6yg"]
+
+[node name="RoboArm" instance=ExtResource("1_7n6yg")]

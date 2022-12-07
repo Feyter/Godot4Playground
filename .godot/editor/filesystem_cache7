@@ -1,12 +1,13 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1670336086
-icon.svg::CompressedTexture2D::8833639799216169790::1670083863::1670083966::1::::<><>::
+::res://::1670409486
+ArmArea.gd::GDScript::-1::1670409435::0::1::::<>Node3D<>::
 CanonArea.gd::GDScript::-1::1670334444::0::1::::<>Node3D<>::
-test_game.gd::GDScript::-1::1670237623::0::1::::<>Node3D<>::
-test_game.tscn::PackedScene::698391003898263709::1670336086::0::1::::<><>::uid://cssxbmplqkrbr<>res://test_game.gd<>uid://cvbacd8q5g8hu<>uid://cb134m72x8fg3<>res://CanonArea.gd<>uid://cefviugfcfyg1<>uid://dai8nivbm8jdw<>uid://csxwxc1lsh573<>uid://crxre5ngp3tid<>uid://dnheqlpo3urim
+icon.svg::CompressedTexture2D::8833639799216169790::1670083863::1670083966::1::::<><>::
+test_game.gd::GDScript::-1::1670406010::0::1::::<>Node3D<>::
+test_game.tscn::PackedScene::698391003898263709::1670409435::0::1::::<><>::uid://cssxbmplqkrbr<>res://test_game.gd<>uid://cvbacd8q5g8hu<>uid://cb134m72x8fg3<>res://CanonArea.gd<>uid://cefviugfcfyg1<>uid://dai8nivbm8jdw<>uid://csxwxc1lsh573<>uid://crxre5ngp3tid<>res://ArmArea.gd<>uid://cndl6vqejocck
 ::res://AssetExport/::1670083974
 move_boter.gltf::PackedScene::4567581988375247593::1670083863::1670083974::1::::<><>::
-::res://AssetImport/::1670246754
+::res://AssetImport/::1670404590
 move_boter_mesh.tscn::PackedScene::53304138515678729::1670083863::0::1::::<><>::uid://pxytclp6hnk6
 ::res://AssetImport/Canon/::1670318523
 Canon.blend::PackedScene::1037430729714334000::1670259863::1670315892::1::::<><>::uid://bvxf58ed64bo5<>uid://cunwsx7i35gcw
@@ -23,7 +24,13 @@ MoveBoterV1.blend::PackedScene::6536440900016491521::1670083863::1670083973::1::
 MoveBoterV1.glb::PackedScene::1101804603587245935::1670083863::1670083970::1::::<><>::
 ::res://AssetImport/MoveBotter/textures/::1670083975
 MoveBoter_ColorBake.png::CompressedTexture2D::4846424138100584100::1670083863::1670083975::1::::<><>::
-::res://AssetImport/Terminal/::1670337939
+::res://AssetImport/RoboArm/::1670409457
+RoboArm.blend::PackedScene::2459952393320522524::1670409457::1670409490::1::::<><>::uid://vvwnnfrrkjng<>uid://blgs5osrgo1eo
+RoboArm.glb::PackedScene::5758132086960346711::1670405476::1670405729::1::::<><>::
+RoboArmMaterial Base Color.png::CompressedTexture2D::1518677329718658980::1670404756::1670409487::1::::<><>::
+RoboArmMaterial Metallic.png::CompressedTexture2D::3172031473837141358::1670404764::1670409487::1::::<><>::
+robo_arm_import.tscn::PackedScene::5408712493600266709::1670405759::0::1::::<><>::uid://cobjug5m82om6
+::res://AssetImport/Terminal/::1670337943
 ArrowTerminal.blend::PackedScene::4248051188589881775::1670337939::1670337943::1::::<><>::uid://djx4ks8fr8u28<>uid://rqnsv48138mi
 ArrowTerminal.glb::PackedScene::2702267942765395516::1670323281::1670323286::1::::<><>::
 ArrowTerminalmaterial Base Color.png::CompressedTexture2D::7840221979544310143::1670322184::1670337941::1::::<><>::
@@ -37,19 +44,21 @@ TerminalButtonMaterial Metallic.png::CompressedTexture2D::5761071065947123692::1
 TerminalButtonMaterial Roughness.png::CompressedTexture2D::4613416374160537253::1670083863::1670083966::1::::<><>::
 ::res://Classes/::1670241190
 ClickArea3D.gd::GDScript::-1::1670241190::0::1::::ClickArea3D<>Area3D<>::
-::res://GUI/::1670336086
+::res://GUI/::1670409381
 default_theme.tres::Theme::1236659264361212093::1670083863::0::1::::<><>::
 main_select.gd::GDScript::-1::1670237571::0::1::::<>Control<>::
-main_select.tscn::PackedScene::4898456577423229908::1670336086::0::1::::<><>::uid://rvbukuo7cm3f<>res://GUI/main_select.gd
+main_select.tscn::PackedScene::4898456577423229908::1670409381::0::1::::<><>::uid://rvbukuo7cm3f<>res://GUI/main_select.gd
 ::res://Materials/::1670083863
 TestMaterialYellow.tres::StandardMaterial3D::7887323019869990060::1670083863::0::1::::<><>::uid://un1csc5p3gwe
 ::res://Materials/Textures/::1670083966
 BluePrintText.png::CompressedTexture2D::5007466837914301759::1670083863::1670083966::1::::<><>::
 BluePrintTexture.png::CompressedTexture2D::1432196946857290008::1670083863::1670083966::1::::<><>::
-::res://Objects/::1670336087
+::res://Objects/::1670409382
+arrwo_terminal.gd::GDScript::-1::1670330199::0::1::::<>Node3D<>::
+arrwo_terminal.tscn::PackedScene::7177804401884311240::1670409382::0::1::::<><>::res://Objects/arrwo_terminal.gd<>res://Classes/ClickArea3D.gd
 box.tscn::PackedScene::6074798283045246311::1670083863::0::1::::<><>::uid://dkmxb72gdooka
 canon.gd::GDScript::-1::1670335943::0::1::::<>Node3D<>::
-canon.tscn::PackedScene::6248875242442678998::1670336087::0::1::::<><>::res://Objects/canon.gd<>uid://bbj75eq2ty3af<>uid://dvcjiblisbwa0
+canon.tscn::PackedScene::6248875242442678998::1670409382::0::1::::<><>::res://Objects/canon.gd<>uid://bbj75eq2ty3af<>uid://dvcjiblisbwa0
 canon_ball.gd::GDScript::-1::1670083863::0::1::::<>RigidBody3D<>::
 canon_ball.tscn::PackedScene::2477185680766738885::1670083863::0::1::::<><>::res://Objects/canon_ball.gd
 click_button_test.gd::GDScript::-1::1670237833::0::1::::<>Node3D<>::
@@ -58,8 +67,8 @@ fps_label.gd::GDScript::-1::1670083863::0::1::::<>Label<>::
 fps_label.tscn::PackedScene::6085098234050604428::1670083863::0::1::::<><>::res://Objects/fps_label.gd
 MoveBoter.gd::GDScript::-1::1670083863::0::1::::<>StaticBody3D<>::
 move_boter.tscn::PackedScene::5065209033873869102::1670083863::0::1::::<><>::res://Objects/MoveBoter.gd<>uid://0258svimcd2
-arrwo_terminal.tscn::PackedScene::7177804401884311240::1670336087::0::1::::<><>::res://Objects/arrwo_terminal.gd<>res://Classes/ClickArea3D.gd
-arrwo_terminal.gd::GDScript::-1::1670330199::0::1::::<>Node3D<>::
+robo_arm.gd::GDScript::-1::1670406768::0::1::::<>Node3D<>::
+robo_arm.tscn::PackedScene::5692213842375830358::1670409382::0::1::::<><>::res://Objects/robo_arm.gd
 terminal_button.gd::GDScript::-1::1670083863::0::1::::<>Node3D<>::
 terminal_button.tscn::PackedScene::6014573325705519023::1670330200::0::1::::<><>::uid://csaltue1fap4o<>res://Objects/terminal_button.gd
 ::res://Resources/::1670095980

@@ -1,5 +1,7 @@
-Node3D
 CollisionShape3D
+BoneAttachment3D
+StaticBody3D
+Node3D
 ClickArea3D (ClickArea3D.gd)
 MeshInstance3D
 Button

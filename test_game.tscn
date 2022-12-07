@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://j7knr4b141rl"]
+[gd_scene load_steps=24 format=3 uid="uid://j7knr4b141rl"]
 
 [ext_resource type="PackedScene" uid="uid://cssxbmplqkrbr" path="res://Objects/box.tscn" id="1_5hipl"]
 [ext_resource type="Script" path="res://test_game.gd" id="1_8urdw"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dai8nivbm8jdw" path="res://Objects/arrwo_terminal.tscn" id="5_6gskx"]
 [ext_resource type="PackedScene" uid="uid://csxwxc1lsh573" path="res://Objects/fps_label.tscn" id="6_c0sco"]
 [ext_resource type="PackedScene" uid="uid://crxre5ngp3tid" path="res://Objects/terminal_button.tscn" id="7_5agc1"]
-[ext_resource type="PackedScene" uid="uid://dnheqlpo3urim" path="res://Objects/click_button_test.tscn" id="8_543fm"]
+[ext_resource type="Script" path="res://ArmArea.gd" id="10_1kyr3"]
+[ext_resource type="PackedScene" uid="uid://cndl6vqejocck" path="res://Objects/robo_arm.tscn" id="10_j6vy6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsmsd"]
 sky_top_color = Color(0.588235, 0.403922, 0.215686, 1)
@@ -27,7 +28,7 @@ sky = SubResource("Sky_aygs8")
 ssr_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajg3a"]
-size = Vector3(19.9137, 1, 10.4583)
+size = Vector3(31.222, 1, 10.4583)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ae1d"]
 
@@ -39,14 +40,14 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -3.1234, 2.36778, 4.29801, 1, 1, -3.1234, 2.36778, 4.29801)
+tracks/0/keys = PackedFloat32Array(0, 1, -3.7262, 3.44761, 4.26881, 1, 1, -3.7262, 3.44761, 4.26881)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.131964, 0.197916, 0.0269, 0.970923, 1, 1, -0.131964, 0.197916, 0.0269, 0.970923)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.243753, 0.114957, 0.0291111, 0.96256, 1, 1, -0.243753, 0.114957, 0.0291111, 0.96256)
 
 [sub_resource type="Animation" id="Animation_gpdbn"]
 resource_name = "Cam_StartPoint"
@@ -73,14 +74,14 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 4.45054, 1.84589, 4.19629, 1, 1, 4.45054, 1.84589, 4.19629)
+tracks/0/keys = PackedFloat32Array(0, 1, 8.75499, 2.63959, 5.31666, 1, 1, 8.75499, 2.63959, 5.31666)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.134566, -0.0475318, -0.00646238, 0.989743, 1, 1, -0.134566, -0.0475318, -0.00646238, 0.989743)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0956254, -0.0379241, 0.00283128, 0.994691, 1, 1, -0.0956254, -0.0379241, 0.00283128, 0.994691)
 
 [sub_resource type="Animation" id="Animation_cps1e"]
 length = 0.001
@@ -116,7 +117,7 @@ script = ExtResource("1_8urdw")
 [node name="MainSelect" parent="." instance=ExtResource("3_5d6ip")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.920211, -0.104471, 0.377223, 1.04308e-07, 0.963724, 0.266901, -0.391422, -0.245605, 0.886829, -3.1234, 2.36778, 4.29801)
+transform = Transform3D(0.997107, 0.0016205, -0.0759869, 0.0128855, 0.981696, 0.190021, 0.0749039, -0.19045, 0.978835, 8.75499, 2.63959, 5.31666)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.913943, -0.215791, 0.34372, 0, 0.846927, 0.531709, -0.405844, -0.485952, 0.774043, 0, 5.1191, 0)
@@ -135,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507624, 0)
 shape = SubResource("BoxShape3D_ajg3a")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(19.8405, 0, 0, 0, 1, 0, 0, 0, 10.3548, 0, 0, 0)
+transform = Transform3D(31.2091, 0, 0, 0, 1, 0, 0, 0, 10.3548, 0, 0, 0)
 mesh = SubResource("BoxMesh_1ae1d")
 skeleton = NodePath("../..")
 
@@ -166,39 +167,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04455, 2.03951, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7553, 0, 2.23428)
 
 [node name="ArrwoTerminal" parent="CanonArea" instance=ExtResource("5_6gskx")]
-transform = Transform3D(0.862496, 0, 0.506064, 0, 1, 0, -0.506064, 0, 0.862496, -3.74543, 0, 2.86171)
+transform = Transform3D(1.45457, 0, 0.366362, 0, 1.5, 0, -0.366362, 0, 1.45457, -3.74543, 0, 2.86171)
 
 [node name="GameAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ytts8")
 }
 
-[node name="MoveBoter" parent="." instance=ExtResource("5_6dd10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.162467)
-Pos1 = Vector3(1.5, 0, 0)
-Pos2 = Vector3(-1.5, 0, 0)
-
-[node name="MoveBoter2" parent="." instance=ExtResource("5_6dd10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81117, 0, -0.754879)
-Pos1 = Vector3(0, 0, 1.5)
-Pos2 = Vector3(0, 0, -1.5)
-
 [node name="FPSLabel" parent="." instance=ExtResource("6_c0sco")]
 
-[node name="TerminalButton" parent="." instance=ExtResource("7_5agc1")]
-transform = Transform3D(0.774445, 0, -0.200588, 0, 0.8, 0, 0.200588, 0, 0.774445, 1.09375, 0, 2.53887)
+[node name="BotArea" type="Node3D" parent="."]
 
-[node name="CubeSpawnPoint" type="Node3D" parent="."]
+[node name="CubeSpawnPoint" type="Node3D" parent="BotArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119529, 11.7829, 0.499344)
 
-[node name="CubeSpawnPointMove" type="AnimationPlayer" parent="CubeSpawnPoint"]
-root_node = NodePath("../..")
+[node name="CubeSpawnPointMove" type="AnimationPlayer" parent="BotArea/CubeSpawnPoint"]
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_5wp56")
 }
 
-[node name="ClickButtonTest" parent="." instance=ExtResource("8_543fm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11968, 0.0291562, 2.18641)
+[node name="TerminalButton" parent="BotArea" instance=ExtResource("7_5agc1")]
+transform = Transform3D(0.774445, 0, -0.200588, 0, 0.8, 0, 0.200588, 0, 0.774445, 1.09375, 0, 2.53887)
+
+[node name="MoveBoter" parent="BotArea" instance=ExtResource("5_6dd10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.162467)
+Pos1 = Vector3(1.5, 0, 0)
+Pos2 = Vector3(-1.5, 0, 0)
+
+[node name="MoveBoter2" parent="BotArea" instance=ExtResource("5_6dd10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81117, 0, -0.754879)
+Pos1 = Vector3(0, 0, 1.5)
+Pos2 = Vector3(0, 0, -1.5)
+
+[node name="ArmArea" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65253, 0, 1.47568)
+script = ExtResource("10_1kyr3")
+
+[node name="Box5" parent="ArmArea" instance=ExtResource("1_5hipl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19375, 1.28443, -0.0378446)
+mass = 20.0
+
+[node name="RoboArm" parent="ArmArea" instance=ExtResource("10_j6vy6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="StartAnimTerminalButton" parent="ArmArea" instance=ExtResource("7_5agc1")]
+transform = Transform3D(0.757907, 0, -0.652363, 0, 1, 0, 0.652363, 0, 0.757907, 2.45799, 0, 2.23735)
 
 [connection signal="go_canon" from="MainSelect" to="." method="_on_main_select_go_canon"]
 [connection signal="go_click_test" from="MainSelect" to="." method="_on_main_select_go_click_test"]
@@ -212,4 +226,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11968, 0.0291562, 2.18641)
 [connection signal="rigth_released" from="CanonArea/ArrwoTerminal" to="CanonArea" method="_on_arrwo_terminal_rigth_released"]
 [connection signal="up_pressed" from="CanonArea/ArrwoTerminal" to="CanonArea" method="_on_arrwo_terminal_up_pressed"]
 [connection signal="up_released" from="CanonArea/ArrwoTerminal" to="CanonArea" method="_on_arrwo_terminal_up_released"]
-[connection signal="button_pushed_down" from="TerminalButton" to="." method="_on_terminal_button_button_pushed_down"]
+[connection signal="button_pushed_down" from="BotArea/TerminalButton" to="." method="_on_terminal_button_button_pushed_down"]
+[connection signal="button_pushed_down" from="ArmArea/StartAnimTerminalButton" to="ArmArea" method="_on_start_anim_terminal_button_button_pushed_down"]
