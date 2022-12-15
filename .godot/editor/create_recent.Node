@@ -1,11 +1,17 @@
-CollisionShape3D
-BoneAttachment3D
-StaticBody3D
+Node
+Timer
 Node3D
-ClickArea3D (ClickArea3D.gd)
+GPUParticles3D
+CollisionShape3D
+Area3D
+StaticBody3D
 MeshInstance3D
-Button
 RigidBody3D
-ShapeCast3D
+CharacterBody2D
+Area2D
 AnimationPlayer
+BoneAttachment3D
+ClickArea3D (ClickArea3D.gd)
+Button
+ShapeCast3D
 Sprite3D

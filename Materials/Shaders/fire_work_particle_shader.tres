@@ -1,0 +1,39 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dxte6x22e0est"]
+
+[sub_resource type="Shader" id="Shader_ruyi7"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.0.beta6's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+uniform float timePassed = 1.0;
+uniform vec4 color : source_color;
+
+varying float lifetime;
+
+void vertex() {
+	lifetime = INSTANCE_CUSTOM.y;
+}
+
+void fragment() {
+	ALBEDO =vec3(color.r, color.g, color.b)*(1.0-lifetime);
+	EMISSION = ALBEDO*(66.0-40.0*(1.0-lifetime));
+	ALPHA = (1.0-lifetime);
+}
+
+float random( vec2 p )
+{
+   // e^pi (Gelfond's constant)
+   // 2^sqrt(2) (Gelfond–Schneider constant)
+     vec2 K1 = vec2( 23.14069263277926, 2.665144142690225 );
+
+   //return fract( cos( mod( 12345678., 256. * dot(p,K1) ) ) ); // ver1
+   //return fract(cos(dot(p,K1)) * 123456.); // ver2
+     return fract(cos(dot(p,K1)) * 12345.6789); // ver3
+}"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_ruyi7")
+shader_parameter/color = Color(0, 0.596078, 0.345098, 1)
+shader_parameter/timePassed = null

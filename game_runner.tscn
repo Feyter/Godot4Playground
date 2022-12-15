@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l7o3he7tubsg"]
+
+[ext_resource type="Script" path="res://game_runner.gd" id="1_rph4q"]
+
+[node name="GameRunner" type="Node"]
+script = ExtResource("1_rph4q")

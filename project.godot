@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"ClickArea3D",
 "language": &"GDScript",
 "path": "res://Classes/ClickArea3D.gd"
+}, {
+"base": "Node",
+"class": &"GameRunner",
+"language": &"GDScript",
+"path": "res://game_runner.gd"
 }]
 _global_script_class_icons={
-"ClickArea3D": ""
+"ClickArea3D": "",
+"GameRunner": ""
 }
 
 [application]

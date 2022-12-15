@@ -12,3 +12,6 @@ func _process(delta):
 
 func tap():
 	$RoboArm/AnimationPlayer.play("02_tap")
+
+func stop():
+	$RoboArm/AnimationPlayer.play("00_null", 0.3)

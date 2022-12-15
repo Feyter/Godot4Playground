@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://j7knr4b141rl"]
+[gd_scene load_steps=38 format=3 uid="uid://j7knr4b141rl"]
 
 [ext_resource type="PackedScene" uid="uid://cssxbmplqkrbr" path="res://Objects/box.tscn" id="1_5hipl"]
 [ext_resource type="Script" path="res://test_game.gd" id="1_8urdw"]
 [ext_resource type="PackedScene" uid="uid://cvbacd8q5g8hu" path="res://Objects/canon.tscn" id="2_sfw0q"]
 [ext_resource type="PackedScene" uid="uid://cb134m72x8fg3" path="res://GUI/main_select.tscn" id="3_5d6ip"]
+[ext_resource type="Script" path="res://GameCamera.gd" id="3_7fyeh"]
 [ext_resource type="Script" path="res://CanonArea.gd" id="4_3wlqg"]
 [ext_resource type="PackedScene" uid="uid://cefviugfcfyg1" path="res://Objects/move_boter.tscn" id="5_6dd10"]
 [ext_resource type="PackedScene" uid="uid://dai8nivbm8jdw" path="res://Objects/arrwo_terminal.tscn" id="5_6gskx"]
@@ -11,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://crxre5ngp3tid" path="res://Objects/terminal_button.tscn" id="7_5agc1"]
 [ext_resource type="Script" path="res://ArmArea.gd" id="10_1kyr3"]
 [ext_resource type="PackedScene" uid="uid://cndl6vqejocck" path="res://Objects/robo_arm.tscn" id="10_j6vy6"]
+[ext_resource type="PackedScene" uid="uid://1a2do8rno8sx" path="res://Objects/wind_area.tscn" id="12_ax6af"]
+[ext_resource type="PackedScene" uid="uid://xknhohk7y31c" path="res://Objects/bumper.tscn" id="12_d4sg8"]
+[ext_resource type="PackedScene" uid="uid://w0nj0pk7ycvg" path="res://Objects/wheel.tscn" id="13_pdobe"]
+[ext_resource type="Material" uid="uid://culmec7rpd3mm" path="res://Materials/TestMaterialBlue.tres" id="14_rp6f5"]
+[ext_resource type="PackedScene" uid="uid://b472e7cffus1e" path="res://Objects/ball.tscn" id="15_0tj35"]
+[ext_resource type="PackedScene" uid="uid://cy8knnlpvfoql" path="res://Objects/fire_work.tscn" id="17_mietj"]
+[ext_resource type="Script" path="res://FireWorkSystem.gd" id="17_xiwog"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsmsd"]
 sky_top_color = Color(0.588235, 0.403922, 0.215686, 1)
@@ -26,6 +34,8 @@ sky_material = SubResource("ProceduralSkyMaterial_hsmsd")
 background_mode = 2
 sky = SubResource("Sky_aygs8")
 ssr_enabled = true
+glow_enabled = true
+glow_bloom = 0.04
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajg3a"]
 size = Vector3(31.222, 1, 10.4583)
@@ -111,6 +121,23 @@ _data = {
 "CubeSpawnPointMove": SubResource("Animation_j5nc0")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2s4d"]
+size = Vector3(2.79096, 1, 0.709626)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53wl4"]
+size = Vector3(6.73724, 0.269862, 1.63882)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dph06"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76bdr"]
+size = Vector3(6.75315, 1.30718, 0.342868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_356x4"]
+size = Vector3(1, 1, 2.29676)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwpnr"]
+size = Vector3(0.417152, 1, 1.5627)
+
 [node name="TestGame" type="Node3D"]
 script = ExtResource("1_8urdw")
 
@@ -118,6 +145,8 @@ script = ExtResource("1_8urdw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.997107, 0.0016205, -0.0759869, 0.0128855, 0.981696, 0.190021, 0.0749039, -0.19045, 0.978835, 8.75499, 2.63959, 5.31666)
+script = ExtResource("3_7fyeh")
+target = NodePath("../ArmArea/Ball")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.913943, -0.215791, 0.34372, 0, 0.846927, 0.531709, -0.405844, -0.485952, 0.774043, 0, 5.1191, 0)
@@ -130,13 +159,13 @@ environment = SubResource("Environment_lba16")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74909, 8.46683, -0.0378446)
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507624, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99565, -0.507624, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_ajg3a")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(31.2091, 0, 0, 0, 1, 0, 0, 0, 10.3548, 0, 0, 0)
+transform = Transform3D(31.2091, 0, 0, 0, 1, 0, 0, 0, 10.3548, -0.197529, 0, 0)
 mesh = SubResource("BoxMesh_1ae1d")
 skeleton = NodePath("../..")
 
@@ -204,15 +233,86 @@ Pos2 = Vector3(0, 0, -1.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65253, 0, 1.47568)
 script = ExtResource("10_1kyr3")
 
-[node name="Box5" parent="ArmArea" instance=ExtResource("1_5hipl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19375, 1.28443, -0.0378446)
-mass = 20.0
+[node name="Bumper" parent="ArmArea" instance=ExtResource("12_d4sg8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.430525, 0, -3.9466)
 
 [node name="RoboArm" parent="ArmArea" instance=ExtResource("10_j6vy6")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(-1.24421, 0, -1.56587, 0, 2, 0, 1.56587, 0, -1.24421, 1.87526, 0, -2.03976)
 
 [node name="StartAnimTerminalButton" parent="ArmArea" instance=ExtResource("7_5agc1")]
 transform = Transform3D(0.757907, 0, -0.652363, 0, 1, 0, 0.652363, 0, 0.757907, 2.45799, 0, 2.23735)
+
+[node name="WindArea" parent="ArmArea" instance=ExtResource("12_ax6af")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.76879, 0, 0.520377)
+direction = Vector3(2, 0, 0)
+
+[node name="Wheel" parent="ArmArea" instance=ExtResource("13_pdobe")]
+transform = Transform3D(3.81108e-08, -2.14069e-08, -1, -0.498881, 0.86667, -3.75655e-08, 0.86667, 0.498881, 2.235e-08, 4.79986, 3.43248, 0.64727)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ArmArea"]
+transform = Transform3D(0.985169, 0, 0.171585, 0, 1, 0, -0.171585, 0, 0.985169, 3.37119, 0.548738, 2.05763)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmArea/StaticBody3D"]
+shape = SubResource("BoxShape3D_t2s4d")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="ArmArea"]
+transform = Transform3D(0.986446, 0, -0.164084, 0, 1, 0, 0.164084, 0, 0.986446, 3.37119, 0.548738, -1.16803)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmArea/StaticBody3D2"]
+transform = Transform3D(0.989224, 0, -0.146411, 0, 1, 0, 0.146411, 0, 0.989224, 0, 0, 0)
+shape = SubResource("BoxShape3D_t2s4d")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="ArmArea"]
+transform = Transform3D(0.939106, -0.343627, 0, 0.343627, 0.939106, 0, 0, 0, 1, 3.54021, 0.394004, -3.9111)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmArea/StaticBody3D3"]
+shape = SubResource("BoxShape3D_53wl4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ArmArea/StaticBody3D3"]
+transform = Transform3D(6.68098, 0, 0, -4.76837e-07, 0.284597, 0, 0, 0, 1.59344, 0, 0, 0)
+material_override = ExtResource("14_rp6f5")
+mesh = SubResource("BoxMesh_dph06")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ArmArea/StaticBody3D3"]
+transform = Transform3D(6.68098, -1.55673e-08, 5.96046e-08, -7.15256e-07, -1.24401e-08, 1.59344, 0, -0.284597, -6.96516e-08, 0.133998, 0.366207, -0.981765)
+material_override = ExtResource("14_rp6f5")
+mesh = SubResource("BoxMesh_dph06")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ArmArea/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76837e-06, 0.531826, -0.992235)
+shape = SubResource("BoxShape3D_76bdr")
+
+[node name="Ball" parent="ArmArea" instance=ExtResource("15_0tj35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03964, 1.16432, -1.05453)
+
+[node name="EndBumper" type="StaticBody3D" parent="ArmArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35256, 0.474488, -4.06689)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmArea/EndBumper"]
+shape = SubResource("BoxShape3D_356x4")
+
+[node name="EndArea" type="Area3D" parent="ArmArea/EndBumper"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmArea/EndBumper/EndArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67537, 0, 0)
+shape = SubResource("BoxShape3D_gwpnr")
+
+[node name="FireWorkSystem" type="Node3D" parent="ArmArea"]
+script = ExtResource("17_xiwog")
+
+[node name="FireWork" parent="ArmArea/FireWorkSystem" instance=ExtResource("17_mietj")]
+transform = Transform3D(0.819542, 0.573019, 0, -0.573019, 0.819542, 0, 0, 0, 1, -7.51824, -4.93297, -11.3248)
+
+[node name="FireWork2" parent="ArmArea/FireWorkSystem" instance=ExtResource("17_mietj")]
+transform = Transform3D(0.879258, 0.476346, 0, -0.476346, 0.879258, 0, 0, 0, 1, -9.1265, -5.15749, -13.0741)
+
+[node name="FireWork3" parent="ArmArea/FireWorkSystem" instance=ExtResource("17_mietj")]
+transform = Transform3D(0.857248, -0.514903, 0, 0.514903, 0.857248, 0, 0, 0, 1, 2.36124, -4.93297, -11.3248)
+
+[node name="FireWork4" parent="ArmArea/FireWorkSystem" instance=ExtResource("17_mietj")]
+transform = Transform3D(0.90453, -0.42641, 0, 0.42641, 0.90453, 0, 0, 0, 1, 1.39146, -4.93297, -11.3248)
+
+[node name="Timer" type="Timer" parent="ArmArea/FireWorkSystem"]
 
 [connection signal="go_canon" from="MainSelect" to="." method="_on_main_select_go_canon"]
 [connection signal="go_click_test" from="MainSelect" to="." method="_on_main_select_go_click_test"]
@@ -227,4 +327,9 @@ transform = Transform3D(0.757907, 0, -0.652363, 0, 1, 0, 0.652363, 0, 0.757907, 
 [connection signal="up_pressed" from="CanonArea/ArrwoTerminal" to="CanonArea" method="_on_arrwo_terminal_up_pressed"]
 [connection signal="up_released" from="CanonArea/ArrwoTerminal" to="CanonArea" method="_on_arrwo_terminal_up_released"]
 [connection signal="button_pushed_down" from="BotArea/TerminalButton" to="." method="_on_terminal_button_button_pushed_down"]
+[connection signal="followOn" from="ArmArea" to="." method="_on_arm_area_follow_on"]
 [connection signal="button_pushed_down" from="ArmArea/StartAnimTerminalButton" to="ArmArea" method="_on_start_anim_terminal_button_button_pushed_down"]
+[connection signal="body_entered" from="ArmArea/EndBumper/EndArea" to="." method="_on_ball_end"]
+[connection signal="body_entered" from="ArmArea/EndBumper/EndArea" to="ArmArea" method="_on_end_area_body_entered"]
+[connection signal="body_entered" from="ArmArea/EndBumper/EndArea" to="ArmArea/FireWorkSystem" method="_on_end"]
+[connection signal="timeout" from="ArmArea/FireWorkSystem/Timer" to="ArmArea/FireWorkSystem" method="_on_timer_timeout"]

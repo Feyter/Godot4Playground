@@ -1,5 +1,6 @@
-res://test_game.tscn
-res://GUI/main_select.tscn
-res://Objects/canon.tscn
-res://Objects/arrwo_terminal.tscn
-res://Objects/robo_arm.tscn
+res://Materials/TestMaterialYellow.tres
+res://Materials/TestMaterialGreen.tres
+res://Materials/TestMaterialBlue.tres
+res://Materials/Shaders/fire_work_particle_shader.tres
+res://game_runner.tscn
+res://game_runner.gd

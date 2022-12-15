@@ -33,3 +33,13 @@ func _on_terminal_button_button_pushed_down():
 
 func _on_main_select_go_click_test():
 	$GameAnimation.play("Pos3", 0.5)
+
+
+func _on_arm_area_follow_on():
+	$Camera3D.activateFollow(true)
+
+
+func _on_ball_end(body):
+	if body.is_in_group("physics_moved_objects"):
+		$Camera3D.activateFollow(false)
+		$GameAnimation.play("Pos3", 0.5)
